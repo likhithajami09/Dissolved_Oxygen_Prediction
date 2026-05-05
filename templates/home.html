@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="text-primary"><i class="fas fa-hand-holding-water me-3"></i></h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="/home" class="nav-item nav-link active">Home</a>
+                        <a href="/load_dataset" class="nav-item nav-link">Load Dataset</a>
+                        <a href="/preprocess" class="nav-item nav-link">Preprocess Dataset</a>
+                        <a href="/existing_alg" class="nav-item nav-link">Existing Algorithm</a>
+                        <a href="/proposed_alg" class="nav-item nav-link ">Proposed Algorithm</a>
+                        <a href="/extension_alg" class="nav-item nav-link">Extension Algorithm</a>
+                        <a href="/graph" class="nav-item nav-link">Graph</a>
+                        <a href="/predict" class="nav-item nav-link">Prediction</a>
+
+
+
+                    </div>
+                    <a href="/logout" class="btn btn-primary rounded-pill d-inline-flex flex-shrink-0 py-2 px-4">Logout</a>
+                </div>
+            </nav>
+
+            <!-- Header Start -->
+            <div class="container-fluid bg-breadcrumb">
+                <div class="container text-center py-5" style="max-width: 900px;">
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Home</h4>
+                </div>
+            </div>
+            <!-- Header End -->
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <!-- About Start -->
+        <div class="container-fluid about py-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    </div>
+                    <div class="col-xl-12 wow justify fadeInRight" data-wow-delay="0.2s">
+                        <div class="about-item">
+                            <h3 class="display-3 mb-3">Abstract</h3>
+                            <p class="mb-4">In this paper author is introducing novel concept to predict water quality as many countries growth heavily dependent on exports of aquatic food and its necessary to maintain healthy water for aquatic life. One of the major components of water is Dissolved Oxygen and its excess or insufficient presence may degrade aquatic animal’s health condition. So it’s necessity to maintain good quality of water by maintaining oxygen level in water.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+
+
+
+
+    </body>
+    {% endblock %}
+

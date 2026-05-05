@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+    th {
+        background-color: #4CAF50; /* Bright green background */
+        color: white;
+        font-weight: bold;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2; /* Light gray for even rows */
+    }
+    tr:hover {
+        background-color: #ddd; /* Light hover effect */
+    }
+</style>
+</head>
+{% extends 'base.html' %}
+{% block title %}Prediction{% endblock %}
+{% block body %}
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="text-primary"><i class="fas fa-hand-holding-water me-3"></i></h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="/home" class="nav-item nav-link ">Home</a>
+                        <a href="/load_dataset" class="nav-item nav-link ">Load Dataset</a>
+                        <a href="/preprocess" class="nav-item nav-link ">Preprocess Dataset</a>
+                        <a href="/existing_alg" class="nav-item nav-link ">Existing Algorithm</a>
+                        <a href="/proposed_alg" class="nav-item nav-link ">Proposed Algorithm</a>
+                        <a href="/extension_alg" class="nav-item nav-link ">Extension Algorithm</a>
+                        <a href="/graph" class="nav-item nav-link">Graph</a>
+                        <a href="/predict" class="nav-item nav-link active">Prediction</a>
+
+
+
+                    </div>
+                    <a href="/logout" class="btn btn-primary rounded-pill d-inline-flex flex-shrink-0 py-2 px-4">Logout</a>
+                </div>
+            </nav>
+
+            <!-- Header Start -->
+            <div class="container-fluid bg-breadcrumb">
+                <div class="container text-center py-5" style="max-width: 900px;">
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Prediction</h4>
+                </div>
+            </div>
+            <!-- Header End -->
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+        <main class="main">
+        
+         <!-- Starter Section Section -->
+    <section id="starter-section" class="starter-section section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Upload Test Data</h2>
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="col-lg-6 text-center">
+                <form action="/predict" class="needs-validation" method="post" enctype="multipart/form-data">
+                    <div class="input-group shadow-lg bg-dark rounded" data-bs-theme="dark">
+                        <input type="file" class="form-control" name="testdata" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" required>
+                        <button class="btn btn-danger" type="submit" id="inputGroupFileAddon04">Submit</button>
+                    </div>
+                    {% if message %}
+                    <p style="color: red;">{{ message }}</p>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        
+        </div><!-- End Section Title -->
+  
+      </section><!-- /Starter Section Section -->
+      
+         <br>         <br>
+         <br>
+         <br>
+
+        <div class=" justify-content-center text-center">
+          <h3>Prediction Results</h3>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Test Data</th>
+                      <th>Predicted Performance</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for result in results %}
+                      <tr>
+                          <td>{{ result.test_data }}</td>
+                          <td>{{ result.predicted_performance }}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+          </div>
+        
+        
+        
+        
+        </main>
+        
+        
+      
+
+
+
+
+
+
+
+
+
+    </body>
+    {% endblock %}
+
