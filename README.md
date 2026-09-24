@@ -1,118 +1,94 @@
-# Smart and Sustainable Aquaculture: Predicting Dissolved Oxygen Using a Hybrid Deep Learning Approach
-A complete intelligent system for predicting dissolved oxygen levels in aquaculture environments using a hybrid deep learning approach combined with machine learning techniques.
+<div align="center">
 
-## Overview
-This project presents a smart and sustainable aquaculture framework for accurate dissolved oxygen prediction. It integrates advanced machine learning and deep learning models to improve prediction accuracy and support real-time monitoring.
+# 🌊 Smart & Sustainable Aquaculture
+### Predicting Dissolved Oxygen with a Hybrid Deep Learning Ensemble
 
-The system combines LightGBM-based feature selection with deep learning architectures such as RNN, GRU, BiLSTM, and Attention mechanisms to capture both short-term and long-term temporal dependencies in water quality data.
+*Fish can't tell you when the water's running out of oxygen. This model can — before it becomes a problem.*
 
-## Abstract
-This system presents a Smart and Sustainable Aquaculture framework for dissolved oxygen prediction using a hybrid deep learning approach. The model combines LightGBM-based feature selection with RNN, GRU, BiLSTM, and an Attention mechanism to improve prediction accuracy in aquaculture environments. LightGBM identifies important water quality parameters and removes irrelevant features, reducing complexity and improving efficiency. The ensemble architecture captures temporal dependencies for reliable dissolved oxygen forecasting. A Flask web application with SQLite support is integrated for secure login, data upload, and testing. Experimental results show high accuracy and strong reliability, making the system effective for intelligent aquaculture management and sustainable water quality monitoring.
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![LightGBM](https://img.shields.io/badge/LightGBM-9ACD32?style=for-the-badge)
+![Deep Learning](https://img.shields.io/badge/Deep_Learning-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Status](https://img.shields.io/badge/Accuracy-97.85%25-brightgreen?style=for-the-badge)
 
-## Objective
-- Identify important water quality parameters using LightGBM feature selection
-- Improve accuracy of dissolved oxygen prediction
-- Support real-time monitoring in aquaculture systems
-- Enable intelligent decision-making for sustainable aquaculture
+</div>
 
-## Introduction
-Aquaculture is growing rapidly, increasing the need for efficient water quality management. Dissolved oxygen is a critical factor for aquatic life. Low oxygen levels can lead to stress, disease, and reduced productivity.
+---
 
-Traditional monitoring methods are inefficient and fail to capture dynamic environmental changes. This system provides accurate prediction to help take early actions and improve sustainability.
+## 🐟 The Problem
 
+Dissolved oxygen (DO) is the single most critical factor keeping aquatic life alive — and one of the hardest to track in real time. Traditional monitoring is slow, reactive, and often catches problems *after* the damage is done: stressed fish, disease outbreaks, crashed yields.
 
-## Existing System
-- Uses models like Linear Regression, SVM, Decision Tree, Random Forest, ANN
-- Hybrid models include LightGBM-LSTM and LightGBM-GRU
-- Limited ability to capture long-term dependencies
-- Lower accuracy and higher complexity
+**This project flips that script** — predicting DO levels before they become a crisis, using a hybrid deep learning pipeline built for real aquaculture environments.
 
-## Proposed System
-- Uses an advanced hybrid ensemble model
-- Combines:
-  - LightGBM (feature selection)
-  - RNN
-  - GRU
-  - BiLSTM
-  - Attention mechanism
-- Captures both short-term and long-term dependencies
-- Provides better accuracy and efficiency
+## ⚡ What Makes This Different
 
-## Advantages
-- Higher prediction accuracy
-- Reduced computational complexity
-- Effective feature selection
-- Real-time monitoring capability
-- Scalable and reliable system
+Most existing approaches (Linear Regression, SVM, single LSTM/GRU models) either miss long-term temporal patterns or drown in irrelevant features. This system fixes both problems at once:
 
-## System Modules
-1. Data Acquisition and Preprocessing
-   - Collects water quality data (pH, temperature, turbidity, etc.)
-   - Cleans and normalizes data
+| Stage | What it does |
+|---|---|
+| 🎯 **LightGBM Feature Selection** | Cuts the noise — keeps only the water-quality parameters that actually matter |
+| 🧠 **Hybrid Ensemble (RNN + GRU + BiLSTM + Attention)** | Captures both short-term spikes and long-term trends in the data |
+| 📊 **Flask + SQLite Web App** | Secure login, data upload, and live testing — not just a notebook experiment |
 
-2. Feature Selection
-   - Uses LightGBM to select important features
+## 🏆 Results That Speak for Themselves
 
-3. Prediction and Evaluation
-   - Uses hybrid deep learning model
-   - Evaluates using MSE, RMSE, MAE
+| Model | RMSE ↓ | MAE ↓ | Accuracy ↑ |
+|---|---|---|---|
+| LightGBM–LSTM | 0.1531 | 0.1214 | 93.42% |
+| LightGBM–GRU | 0.1445 | 0.1105 | 94.11% |
+| LightGBM–BiSRU–Attention | 0.1254 | 0.1013 | 96.28% |
+| **🥇 Proposed Ensemble Model** | **0.1095** | **0.0907** | **97.85%** |
 
-4. User Interface
-   - Flask-based web application
-   - Secure login and data input
+The proposed hybrid model beats every baseline — lower error, higher accuracy, across the board.
 
-## Algorithm
-1. LightGBM Feature Selection
-   - Identifies important parameters
-   - Removes irrelevant data
+## 🧩 System at a Glance
 
-2. Hybrid Deep Learning Model
-   - Combines BiLSTM, GRU, RNN, Attention
-   - Captures temporal dependencies
+```
+Raw Water Quality Data → Preprocessing → LightGBM Feature Selection
+        → Hybrid Deep Learning Ensemble (RNN + GRU + BiLSTM + Attention)
+        → Prediction & Evaluation → Flask Dashboard
+```
 
-3. Prediction
-   - Uses Adam optimizer
-   - Minimizes error using MSE
+**Modules:** Data Acquisition & Preprocessing · Feature Selection · Prediction & Evaluation (MSE/RMSE/MAE) · Secure Web UI
 
-## Results
-The system provides accurate dissolved oxygen prediction with strong performance and reliability.
+## 🛠️ Tech Stack
 
-## Comparative Study
-| Model                          | RMSE     | MAE      | Accuracy |
-|--------------------------------|----------|----------|----------|
-| LightGBM-LSTM                  | 0.153118 | 0.121389 | 93.42%   |
-| LightGBM-GRU                   | 0.144543 | 0.110472 | 94.11%   |
-| LightGBM-BiSRU-Attention       | 0.125432 | 0.101289 | 96.28%   |
-| Proposed Ensemble Model        | 0.109481 | 0.090655 | 97.85%   |
+`Python` · `Flask` · `LightGBM` · `RNN` `GRU` `BiLSTM` `Attention` · `Pandas` · `Scikit-learn` · `SQLite` · `HTML/CSS/JS`
 
-## Tech Stack
-- Python
-- Flask
-- LightGBM
-- Deep Learning Models (RNN, GRU, BiLSTM, Attention)
-- Pandas
-- Scikit-learn
-- SQLite
-- HTML, CSS, JavaScript
+## 🚀 Get It Running
 
-## How to Run
-1. Install dependencies:
+```bash
+# 1. Install dependencies
 pip install -r requirements.txt
 
-2. Run the application:
+# 2. Launch the app
 python app.py
 
-3. Open browser:
+# 3. Open in your browser
 http://127.0.0.1:5000/
+```
 
-## Project Structure
-- Dataset/
-- model/
-- templates/
-- static/
-- uploads/
-- app.py
-- requirements.txt
+## 📁 Project Structure
 
-## Conclusion
-This system demonstrates the effectiveness of a hybrid ensemble model for dissolved oxygen prediction. It improves accuracy, reduces errors, and supports sustainable aquaculture management through intelligent monitoring and prediction.
+```
+Dataset/       → raw & processed water quality data
+model/         → trained hybrid ensemble model
+templates/     → Flask HTML templates
+static/        → CSS/JS assets
+uploads/       → user-uploaded data for testing
+app.py         → Flask application entry point
+requirements.txt
+```
+
+## 🌱 Why It Matters
+
+Aquaculture is one of the fastest-growing food industries in the world — and water quality is its biggest bottleneck. A model that predicts oxygen crashes before they happen isn't just a machine learning exercise; it's a tool for **sustainable, higher-yield fish farming**.
+
+---
+
+<div align="center">
+
+⭐ **If this project made you think differently about aquaculture + AI, consider starring the repo!**
+
+</div>
